@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+
+div{
+    position: absolute;
+    justify-items: center;
+    align-items: center;
+    width: 85%;
+}
+  
