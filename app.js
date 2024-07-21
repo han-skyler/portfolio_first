@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         content.style.display = 'block';
       }
     }, 1000); // opacity 전환 시간과 일치하도록 설정
-  }, 300); // 3초 대기
+  }, 3000); // 3초 대기
 });
 
 document.addEventListener('scroll', () => {

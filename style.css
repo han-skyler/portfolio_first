@@ -28,6 +28,11 @@ a {
   transition: opacity 1s ease; /* 화면 전환에 부드러운 효과 추가 */
 }
 
+#h1-row1{
+  font-weight: 100;
+  font-size: 1.5rem;
+}
+
 /* 콘텐츠 스타일 */
 .content {
   display: none; /* 처음에는 콘텐츠를 숨깁니다 */
