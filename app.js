@@ -1,7 +1,7 @@
-const circle = document.getElementById("circle");
+const circle = document.getElementById('circle');
 
 // 동적 스타일을 위한 CSSOM 사용
-const style = document.createElement("style");
+const style = document.createElement('style');
 document.head.appendChild(style);
 const sheet = style.sheet;
 
@@ -49,9 +49,9 @@ sheet.insertRule(
 );
 
 // 동적 CSS 스타일 적용
-circle.style.position = "relative";
+circle.style.position = 'relative';
 
-const beforeStyle = document.createElement("style");
+const beforeStyle = document.createElement('style');
 document.head.appendChild(beforeStyle);
 const beforeSheet = beforeStyle.sheet;
 
@@ -75,67 +75,69 @@ beforeSheet.insertRule(
 );
 
 // 애니메이션 시작
-circle.classList.add("animate");
+circle.classList.add('animate');
 
-document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".navbar a");
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.navbar a');
 
   links.forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener('click', (e) => {
       e.preventDefault(); // 기본 링크 동작 방지
 
-      const targetId = e.target.getAttribute("href").substring(1); // href 속성에서 # 제거
+      const targetId = e.target.getAttribute('href').substring(1); // href 속성에서 # 제거
       const targetElement = document.getElementById(targetId);
 
       if (targetElement) {
         targetElement.scrollIntoView({
-          behavior: "smooth", // 부드러운 스크롤
+          behavior: 'smooth', // 부드러운 스크롤
         });
       }
     });
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const welcomeScreen = document.getElementById("welcome-screen");
-  const content = document.querySelector(".content");
+document.addEventListener('DOMContentLoaded', () => {
+  const welcomeScreen = document.getElementById('welcome-screen');
+  const content = document.querySelector('.content');
 
   // 3초 후 자동으로 전환
   setTimeout(() => {
-    welcomeScreen.style.opacity = "0"; // 부드러운 전환 효과를 위한 opacity 변경
+    welcomeScreen.style.opacity = '0'; // 부드러운 전환 효과를 위한 opacity 변경
     setTimeout(() => {
-      welcomeScreen.style.display = "none";
+      welcomeScreen.style.display = 'none';
       if (content) {
         // .content 요소가 존재할 경우에만 display 속성 변경
-        content.style.display = "block";
+        content.style.display = 'block';
       }
     }, 1000); // opacity 전환 시간과 일치하도록 설정
   }, 300); // 3초 대기
 });
 
-document.addEventListener("scroll", () => {
-  const circleContainer = document.querySelector(".circle-container");
+document.addEventListener('scroll', () => {
+  const circleContainer = document.querySelector('.circle-container');
   let scrollY = window.scrollY;
 
-  // 'main' 섹션과 'projects' 섹션의 위치를 찾기
-  const mainSection = document.querySelector("#main");
-  const projectsSection = document.querySelector("#projects");
+  // 섹션 위치 계산
+  const mainSection = document.querySelector('#main');
+  const projectsSection = document.querySelector('#projects');
+  const contactSection = document.querySelector('#contact');
   const mainSectionTop = mainSection.offsetTop;
   const mainSectionHeight = mainSection.offsetHeight;
   const projectsSectionTop = projectsSection.offsetTop;
   const projectsSectionHeight = projectsSection.offsetHeight;
+  const contactSectionTop = contactSection.offsetTop;
 
-  // 각 섹션의 끝 위치를 계산
+  // 섹션 끝 위치 계산
   const mainSectionBottom = mainSectionTop + mainSectionHeight;
   const projectsSectionBottom = projectsSectionTop + projectsSectionHeight;
 
-  // 스크롤에 따라 크기와 위치 조정
-  let moveDistance = scrollY * 0.6; // 동그라미를 더 왼쪽으로 이동시키기 위해 값을 증가시킴
-  const minSize = 1.0; // 최소 크기 비율
-  const maxSize = 2.5; // 최대 크기 비율
-  const scaleValue = Math.min(maxSize, minSize + scrollY * 0.004); // 스크롤에 따라 크기 조정
+  // 이동 거리 및 크기 조정 계산
+  let moveDistance = scrollY * 0.6;
+  const minSize = 1.0;
+  const maxSize = 2.5;
+  const scaleValue = Math.min(maxSize, minSize + scrollY * 0.004);
 
-  // 최대 이동 거리를 제한하기 위해 추가된 조건
+  // 최대 이동 거리를 제한
   if (moveDistance > 300) {
     moveDistance = 900;
   }
@@ -149,16 +151,20 @@ document.addEventListener("scroll", () => {
   } else if (scrollY >= mainSectionBottom && scrollY < projectsSectionTop) {
     // 'main' 섹션 이후, 'projects' 섹션 전까지 크기 조정
     circleContainer.style.transform = `translate(calc(-50% - ${moveDistance}px), -50%) scale(${scaleValue})`;
+  } else if (scrollY >= projectsSectionBottom && scrollY < contactSectionTop) {
+    // 'projects' 섹션 이후, 'contact' 섹션 전까지의 크기 및 위치 조정
+    circleContainer.style.transform = `translate(calc(-50% - ${moveDistance}px), -50%) scale(${scaleValue})`;
   } else {
-    // 'projects' 섹션 이후에는 크기와 위치를 일정하게 유지
-    circleContainer.style.transform = `translate(calc(-50% - ${moveDistance}px), -50%) scale(${maxSize})`;
+    // 'contact' 섹션 이후에는 크기와 위치를 중앙으로 설정
+    circleContainer.style.transform = `translate(-50%, -50%) scale(${maxSize})`;
   }
 });
 
+
 // 타이핑 애니메이션
-const content1 = "Hello World!";
-const content2 = "나의 세상이 펼쳐지다";
-const text = document.querySelector("#main-text");
+const content1 = 'Hello World!';
+const content2 = '나의 세상이 펼쳐지다';
+const text = document.querySelector('#main-text');
 let i = 0;
 let isDeleting = false;
 let isFirstContent = true;
@@ -196,3 +202,29 @@ function type() {
 // 애니메이션 시작
 type();
 
+function navigo() {
+  const sections = document.querySelectorAll('.section'); // 모든 섹션 획득
+  const navLinks = document.querySelectorAll('.nav-link'); // 모든 네비게이션 링크 획득
+
+  document.addEventListener('scroll', onScroll, { passive: true }); // 스크롤 이벤트
+
+  function onScroll() {
+    const scrollPosition = window.pageYOffset; // 스크롤 위치
+
+    // 현재 섹션에 따라 네비게이션 링크 색상 변경
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        navLinks.forEach((link) => link.classList.remove('active'));
+        navLinks[index].classList.add('active');
+      }
+    });
+  }
+}
+
+navigo();

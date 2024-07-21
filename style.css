@@ -1,16 +1,15 @@
 /* 전체 페이지 스타일 */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
-  scroll-snap-type: y mandatory; /* 세로 방향 스크롤 스냅 활성화 */
-  scroll-behavior: smooth; /* 스크롤 부드럽게 만들기 (선택 사항) */
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 }
 
-a{
+a {
   text-decoration: none;
-  color: white;
 }
-
 /* 웰컴 스크린 스타일 */
 .welcome-screen {
   position: fixed;
@@ -18,7 +17,7 @@ a{
   left: 0;
   width: 100%;
   height: 100%;
-  background: #00001C;
+  background: #00001c;
   color: white;
   display: flex;
   flex-direction: column;
@@ -79,7 +78,7 @@ body {
 .section-container {
   top: 0;
   right: 0; /* 오른쪽에 붙도록 설정 */
-  width: 100vw; /* 너비 설정 (전체 화면 너비) */
+  width: 100%; /* 너비 설정 (전체 화면 너비) */
   height: 100vh; /* 높이 설정 (전체 화면 높이) */
   z-index: 0; /* 필요한 경우 z-index 설정 */
 }
@@ -116,7 +115,7 @@ body {
 .navbar a {
   text-decoration: none;
   color: #ffffff3a;
-  font-size: 16px;
+  font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
@@ -129,7 +128,7 @@ ul li a.active {
   color: white; /* 현재 페이지 링크 색상 */
 }
 
-#carouselExampleCaptions{
+#carouselExampleCaptions {
   width: 50%;
   left: 15%;
   top: 58%;
@@ -139,7 +138,7 @@ ul li a.active {
 
 #nav-name {
   color: white;
-  font-size: 45px;
+  font-size: 3rem;
   font-weight: 400;
 }
 
@@ -148,9 +147,91 @@ ul li a.active {
   white-space: pre-line; /* 이 스타일은 <br> 태그를 줄 바꿈으로 해석하도록 합니다 */
 }
 
-.blink {
-  animation: blink-animation 1s steps(2, start) infinite;
+#blink {
+  animation: blink-animation 1s steps(2, start) infinite
 }
+
+#projects {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: flex-end; /* 오른쪽에 고정 */
+  padding-right: 30px; /* 오른쪽 여백 조정 */
+}
+
+.projects-wrapper {
+  display: flex;
+  flex-direction: column; /* 컬럼 형태로 배치 */
+  height: 80%; /* 부모 요소의 높이를 채움 */
+  justify-content: space-around; /* 요소들 간에 일정한 간격을 둠 */
+  align-items: flex-end; /* 텍스트 왼쪽 정렬 */
+  text-align: end;
+  margin-right: 30px;
+}
+
+#pjt-a {
+  text-decoration: none;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.61); /* 텍스트 색상 */
+  transition: color 0.3s ease;
+  font-weight: 200;
+  justify-items: end;
+  align-items: end;
+  text-align: end;
+}
+
+#pjt-p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.589);
+  align-items: flex-end; /* 텍스트 왼쪽 정렬 */
+  text-align: end;
+  font-weight: 200;
+  margin-top: 10px;
+}
+
+#skills {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: flex-end; /* 오른쪽에 고정 */
+  padding-right: 60px; /* 오른쪽 여백 조정 */
+}
+
+.skills-wrapper{
+  display: flex;
+  flex-direction: column; /* 컬럼 형태로 배치 */
+  height: 60%; /* 부모 요소의 높이를 채움 */
+  justify-content: space-around; /* 요소들 간에 일정한 간격을 둠 */
+  align-items: flex-end; /* 텍스트 왼쪽 정렬 */
+  text-align: end;
+  margin-right: 100px;
+}
+
+.skills-div{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color:  rgba(255, 255, 255, 0.589); /* 텍스트 색상 */
+  transition: color 0.3s ease;
+  font-weight: 200;
+  align-items: flex-end; /* 텍스트 왼쪽 정렬 */
+  text-align: end;
+  margin-top: 10px;
+}
+
+.skills-div > .text{
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  align-items: flex-end; /* 텍스트 왼쪽 정렬 */
+  text-align: end;
+  font-weight: 100;
+  margin-top: 10px;
+}
+
+
+#pjt-a:hover {
+  color: #ffffff; /* 호버 시 색상 변화 */
+}
+
 @keyframes blink-animation {
   to {
     visibility: hidden;
@@ -158,12 +239,39 @@ ul li a.active {
 }
 
 @font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
+  font-family: 'Pretendard-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
   font-weight: 400;
   font-style: normal;
 }
+#contact {
+  color: #ffffff; /* 텍스트 색상 */
+  padding: 100px 20px; /* 패딩 설정 */
+  text-align: start; /* 텍스트 가운데 정렬 */
+}
 
+.contact-content {
+  max-width: 800px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 가운데 정렬 */
+}
 
+.contact-content h2 {
+  font-size: 2rem; /* 제목 폰트 크기 */
+  margin-bottom: 30px; /* 제목과 내용 사이 간격 */
+}
 
+.contact-content p {
+  font-size: 1.3rem; /* 본문 폰트 크기 */
+  margin: 16px 0; /* 본문 간격 */
+}
+
+.contact-content a {
+  color: #ffffff; /* 링크 색상 */
+  text-decoration: none; /* 링크 밑줄 제거 */
+  transition: color 0.3s; /* 색상 변화 애니메이션 */
+}
+
+.contact-content a:hover {
+  color: #ffffff8e; /* 링크 호버 색상 */
+}
