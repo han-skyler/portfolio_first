@@ -1,0 +1,24 @@
+/* 중앙에 배치하기 위한 body 스타일 */
+body {
+  display: flex;
+  justify-content: center; /* 가로 방향으로 중앙에 배치 */
+  align-items: center; /* 세로 방향으로 중앙에 배치 */
+  height: 100vh; /* 뷰포트 높이를 100vh로 설정 */
+  margin: 0; /* 기본 마진 제거 */
+  overflow: hidden;
+  background-color: #00001c;
+}
+
+/* 캐러셀 크기 조정 */
+#carouselExampleCaptions {
+  width: 60%; /* 캐러셀 너비를 60%로 설정 */
+  height: auto; /* 높이를 자동으로 설정 */
+}
+
+/* 이미지 크기 조정 */
+.carousel-item img {
+  width: 50%; /* 이미지를 캐러셀의 너비에 맞춤 */
+  height: auto; /* 높이를 자동으로 설정 */
+  max-height: 900px; /* 필요에 따라 최대 높이를 설정 */
+  object-fit: contain;
+}
